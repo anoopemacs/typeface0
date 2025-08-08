@@ -14,12 +14,17 @@ const fileList = [
 
 function File({ filename, fileDownloadUrl, fileViewUrl }) {
   return (
-    <li>
-      {filename}
-      &nbsp;
-      <a href={fileViewUrl} target="_blank" rel="noreferrer">View</a>
-      &nbsp;
-      <a href={fileDownloadUrl}>Download</a>
+    <li className="flex justify-between content-center items-center evenf:bg-white odd:bg-gray-300 px-2">
+      <a href={fileViewUrl}
+         target="_blank"
+         rel="noreferrer"
+         className="hover:text-blue-700">
+        {filename}
+      </a>
+      <a href={fileDownloadUrl}
+         className="hover:text-blue-700">
+        Download
+      </a>
     </li>
   );
 }
@@ -46,7 +51,7 @@ function FileList() {
   return (
     <div className="w-10/12 px-8">
       <p className="text-2xl py-4">Your uploaded files:-</p>
-      <ul>
+      <ul className="">
         {listOfFiles}
       </ul>
     </div>
