@@ -125,3 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploaded_files'
+
+# We hardcode the base url of the backend, for use in constructing file download url and file view url
+BASE_URL = 'http://localhost:8000'

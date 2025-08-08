@@ -15,7 +15,17 @@ from .services import write_file_to_disk
 @csrf_exempt
 def file_list_api(request):
     file_list = list(File.objects.values())
-    return JsonResponse({"file_list": file_list})
+    # Let us massage the above list to make it convenient for the frontend
+    # In json returned, every file will have 4 fields:- a unique id, a filename, a url to download it, a url to view it
+    file_list_massaged = []
+    for file in file_list:
+        file_download_url = settings.BASE_URL + "/files/download/" + file["diskname"]
+        file_view_url = settings.BASE_URL + "/media/" + file["diskname"]
+        file["file_download_url"] = file_download_url
+        file["file_view_url"] = file_view_url
+        del file["diskname"]
+        file_list_massaged.append(file)
+    return JsonResponse({"file_list": file_list_massaged})
 
 @csrf_exempt
 def file_upload_api(request):
