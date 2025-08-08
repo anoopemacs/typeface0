@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SideBar from './SideBar';
 
-import logo from './logo.svg';
-import './App.css';
-
 /* //The shape of the data we are expecting from the backend
 const fileList = [
     {
@@ -58,7 +55,7 @@ function FileList() {
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <SideBar />
       <FileList />
     </div>
