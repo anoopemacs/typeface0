@@ -36,7 +36,7 @@ function FileList() {
       .then(data => {
         setFileList(data.file_list);
       })
-  })
+  }, [])
   
   let listOfFiles = fileList.map(file =>
     <File key={file.id}
