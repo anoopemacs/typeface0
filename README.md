@@ -6,7 +6,8 @@ uv run manage.py migrate
 uv run manage.py runserver  
   
 I am using Django web framework in the backend. Sqlite is the database used. The uploaded files are stored on disk.  
-  
+In my design, I permit the user to store multiple copies of the same file in his Dropbox  
+
 The uv package manager is required to create a python virtual environment and run the backend.  
 On Mac or Linux, you can install it using:-  
 curl -LsSf https://astral.sh/uv/install.sh | sh  
