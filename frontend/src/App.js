@@ -17,7 +17,7 @@ function File({ filename, fileDownloadUrl, fileViewUrl }) {
     <li>
       {filename}
       &nbsp;
-      <a href={fileViewUrl} target="_blank">View</a>
+      <a href={fileViewUrl} target="_blank" rel="noreferrer">View</a>
       &nbsp;
       <a href={fileDownloadUrl}>Download</a>
     </li>
