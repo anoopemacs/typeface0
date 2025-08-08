@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import SideBar from './SideBar';
 
 import logo from './logo.svg';
 import './App.css';
@@ -47,7 +48,7 @@ function FileList() {
 
   return (
     <div>
-      This is the FileList.
+      You uploaded files:-
       <ul>
         {listOfFiles}
       </ul>
@@ -58,6 +59,7 @@ function FileList() {
 function App() {
   return (
     <div className="App">
+      <SideBar />
       <FileList />
     </div>
   );

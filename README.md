@@ -55,4 +55,6 @@ npm start
 
 The frontend is built using React. The frontend project was created using create-react-app.
 
-The entire state of the frontend is stored in the state variable `fileList` in the file frontend/src/App.js
+The state of the frontend at `/` is stored in the state variable `fileList` in the file frontend/src/App.js
+
+React-router is used to add routing to `/upload` which runs the `Upload` React component
