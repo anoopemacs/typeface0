@@ -1,8 +1,10 @@
+import React, {useState, useEffect} from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 
-const fileList = {
-  "file_list": [
+/*
+const fileList = [
     {
       "id": 2,
       "filename": "one.txt",
@@ -10,7 +12,7 @@ const fileList = {
       "file_view_url": "http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073efc5_one.txt"
     }
   ]
-}
+*/
 
 function File({ filename, fileDownloadUrl, fileViewUrl }) {
   return (
@@ -25,7 +27,18 @@ function File({ filename, fileDownloadUrl, fileViewUrl }) {
 }
 
 function FileList() {
-  let listOfFiles = fileList["file_list"].map(file =>
+  /* Fetch Data from the backend */
+  let [fileList, setFileList] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8000/files/list/")
+      .then(response => response.json())
+      .then(data => {
+        setFileList(data.file_list);
+      })
+  })
+  
+  let listOfFiles = fileList.map(file =>
     <File key={file.id}
           filename={file.filename}
           fileDownloadUrl={file.file_download_url}
