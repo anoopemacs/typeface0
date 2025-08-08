@@ -1,5 +1,5 @@
 # Backend
-Quickstart:-
+Quickstart:-  
 cd typeface0/backend/
 uv run manage.py makemigrations
 uv run manage.py migrate
