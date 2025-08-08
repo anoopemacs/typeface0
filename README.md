@@ -42,3 +42,11 @@ and
 `http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt` is provided automatically by Django's media files functionality. In production, we need to switch to nginx to handle this functionality.
 
 `http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/` is handled by the `file_download_api` function inside backend/files/views.py file
+
+
+# Frontend
+The frontend is built using React and React-router. The frontend project was created using create-react-app.
+
+How is the state handled?
+Ans: All the state is handled by the backend. The frontend is a pure function that accepts only React props.
+
