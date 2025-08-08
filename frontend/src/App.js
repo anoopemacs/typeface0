@@ -14,7 +14,7 @@ const fileList = {
 
 function File({ filename, fileDownloadUrl, fileViewUrl }) {
   return (
-    <li bla="blue">
+    <li>
       {filename}
       &nbsp;
       <a href={fileViewUrl} target="_blank">View</a>
