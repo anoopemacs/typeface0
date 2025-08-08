@@ -49,6 +49,4 @@ and
 # Frontend
 The frontend is built using React and React-router. The frontend project was created using create-react-app.
 
-How is the state handled?
-Ans: All the state is handled by the backend. The frontend is a pure function that accepts only React props.
-
+The entire state of the frontend is stored in the state variable `fileList` in the file frontend/src/App.js

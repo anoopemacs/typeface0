@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-/*
+/* //The shape of the data we are expecting from the backend
 const fileList = [
     {
       "id": 2,
