@@ -46,6 +46,9 @@ and
 
 `http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/` is handled by the `file_download_api` function inside backend/files/views.py file
 
+## Restricting type of files users can upload
+The admin edits the `ALLOWED_UPLOAD_FILE_TYPES` in Django's `settings.py` file.
+Currently, TXT, JPG, PNG or JSON are allowed.
 
 # Frontend
 Quickstart:-

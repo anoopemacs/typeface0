@@ -38,11 +38,7 @@ def file_upload_api(request):
         # We would not want conflicting disk names. That would mean conflicts when deleting files
         diskname0 = f"{uuid.uuid4()}_{filename0}"
 
-        # The admin can edit the below line to restrict files to only certain types
-        # refer: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types
-        ALLOWED_FILE_TYPES = ["text/plain", "image/jpeg", "image/png", "application/json"]
-
-        if file0.content_type not in ALLOWED_FILE_TYPES:
+        if file0.content_type not in settings.ALLOWED_UPLOAD_FILE_TYPES:
             return JsonResponse({"message": f"Upload aborted. File type not supported: {file0.content_type}"})
         
         write_file_to_disk(file0, diskname0)

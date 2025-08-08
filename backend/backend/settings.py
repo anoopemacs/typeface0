@@ -134,3 +134,7 @@ BASE_URL = 'http://localhost:8000'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+# The admin can edit the below line to restrict files to only certain types
+# refer: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types
+ALLOWED_UPLOAD_FILE_TYPES = ["text/plain", "image/jpeg", "image/png", "application/json"]
