@@ -58,7 +58,7 @@ function FileList() {
   );
 }
 
-function App() {
+function ShowFiles() {
   return (
     <div className="w-full h-full flex">
       <SideBar />
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default ShowFiles;
