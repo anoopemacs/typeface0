@@ -1,5 +1,6 @@
 # Backend
-TLDR:-
+Quickstart:-
+cd typeface0/backend/
 uv run manage.py makemigrations
 uv run manage.py migrate
 uv run manage.py runserver
@@ -47,6 +48,11 @@ and
 
 
 # Frontend
-The frontend is built using React and React-router. The frontend project was created using create-react-app.
+Quickstart:-
+cd typeface0/frontend/
+npm install
+npm start
+
+The frontend is built using React. The frontend project was created using create-react-app.
 
 The entire state of the frontend is stored in the state variable `fileList` in the file frontend/src/App.js
