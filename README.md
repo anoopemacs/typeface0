@@ -1,67 +1,67 @@
 # Backend
 Quickstart:-  
-cd typeface0/backend/
-uv run manage.py makemigrations
-uv run manage.py migrate
-uv run manage.py runserver
-
-I am using Django web framework in the backend. Sqlite is the database used. The uploaded files are stored on disk.
-
-The uv package manager is required to create a python virtual environment and run the backend.
-On Mac or Linux, you can install it using:-
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-(If you do not want to use uv, then create a python virtual environment and install the packages in backend/requirements.txt file.)
-
-Make and run the migrations. You must be in the "backend" folder, containing the "manage.py" file
-uv run manage.py makemigrations
-uv run manage.py migrate
-
-The following 3 urls implement the file listing, file viewing and file downloading functionality:-
-http://localhost:8000/files/list/
-http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt
-http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/
-
-What is `c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt`?
-Ans: Whenever a user uploads a file of name "one.txt", our backend prepends an uuid to its name and saves it to disk.
-`f"{uuid}_one.txt"`
-This is done to handle multiple uploads of the same named file gracefully. Also, its necessary if we were to implement deletion of uploaded files in the future. We ensure that no two uploaded files have the same name when stored on disk.
-
-We follow the MVC framework: Model, View and Controllers
-
-Run the backend:- (Ensure port 8000 is free before running)
-uv run manage.py runserver
-
+cd typeface0/backend/  
+uv run manage.py makemigrations  
+uv run manage.py migrate  
+uv run manage.py runserver  
+  
+I am using Django web framework in the backend. Sqlite is the database used. The uploaded files are stored on disk.  
+  
+The uv package manager is required to create a python virtual environment and run the backend.  
+On Mac or Linux, you can install it using:-  
+curl -LsSf https://astral.sh/uv/install.sh | sh  
+  
+(If you do not want to use uv, then create a python virtual environment and install the packages in backend/requirements.txt file.)  
+  
+Make and run the migrations. You must be in the "backend" folder, containing the "manage.py" file  
+uv run manage.py makemigrations  
+uv run manage.py migrate  
+  
+The following 3 urls implement the file listing, file viewing and file downloading functionality:-  
+http://localhost:8000/files/list/  
+http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt  
+http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/  
+  
+What is `c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt`?  
+Ans: Whenever a user uploads a file of name "one.txt", our backend prepends an uuid to its name and saves it to disk.  
+`f"{uuid}_one.txt"`  
+This is done to handle multiple uploads of the same named file gracefully. Also, its necessary if we were to implement deletion of uploaded files in the future. We ensure that no two uploaded files have the same name when stored on disk.  
+  
+We follow the MVC framework: Model, View and Controllers  
+  
+Run the backend:- (Ensure port 8000 is free before running)  
+uv run manage.py runserver  
+  
 ## Database Models
-A `File` object represents a single uploaded file.
-It contains a 
-`filename` - The name of the file
-and
-`diskname` - The uuid prepended name of the file on the disk
-
+A `File` object represents a single uploaded file.  
+It contains a   
+`filename` - The name of the file  
+and  
+`diskname` - The uuid prepended name of the file on the disk  
+  
 ## Django APIs
-`http://localhost:8000/files/list/` is handled by the `file_list_api` function inside backend/files/views.py file
-
-`http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt` is provided automatically by Django's media files functionality. In production, we need to switch to nginx to handle this functionality.
-
-`http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/` is handled by the `file_download_api` function inside backend/files/views.py file
-
+`http://localhost:8000/files/list/` is handled by the `file_list_api` function inside backend/files/views.py file  
+  
+`http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073ejjfc5_one.txt` is provided automatically by Django's media files functionality. In production, we need to switch to nginx to handle this functionality.  
+  
+`http://localhost:8000/files/download/c47044e2-1246-4c17-8932-jj9495c073efc5_one.txt/` is handled by the `file_download_api` function inside backend/files/views.py file  
+  
 ## Restricting type of files users can upload
-The admin edits the `ALLOWED_UPLOAD_FILE_TYPES` in Django's `settings.py` file.
-Currently, TXT, JPG, PNG or JSON are allowed.
-
+The admin edits the `ALLOWED_UPLOAD_FILE_TYPES` in Django's `settings.py` file.  
+Currently, TXT, JPG, PNG or JSON are allowed.  
+  
 # Frontend
-Quickstart:-
-cd typeface0/frontend/
-npm install
-npm start
-
-The frontend is built using React. The frontend project was created using create-react-app.
-React-router is used to add routing to `/upload` which runs the `Upload` React component
-I have used React's `useState` hook to store the frontend state.
-
+Quickstart:-  
+cd typeface0/frontend/  
+npm install  
+npm start  
+  
+The frontend is built using React. The frontend project was created using create-react-app.  
+React-router is used to add routing to `/upload` which runs the `Upload` React component  
+I have used React's `useState` hook to store the frontend state.  
+  
 ## How to generate the tailwind css output.css
-npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch
-
-The generated `output.css` file should not be git committed. Instead it should be generated by running the above command.
-However, I am committing the above file to make it convenient for the evaluator to run my app with styles.
+npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch  
+  
+The generated `output.css` file should not be git committed. Instead it should be generated by running the above command.  
+However, I am committing the above file to make it convenient for the evaluator to run my app with styles.  
