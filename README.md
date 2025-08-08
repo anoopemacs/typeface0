@@ -10,6 +10,8 @@ The uv package manager is required to create a python virtual environment and ru
 On Mac or Linux, you can install it using:-
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+(If you do not want to use uv, then create a python virtual environment and install the packages in backend/requirements.txt file.)
+
 Make and run the migrations. You must be in the "backend" folder, containing the "manage.py" file
 uv run manage.py makemigrations
 uv run manage.py migrate
