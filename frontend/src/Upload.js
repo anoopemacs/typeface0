@@ -23,12 +23,14 @@ const Upload = () => {
   };
 
   return (
-    <div>
+    <div className="w-full h-full flex">
       <SideBar />
-      <h3>File Uploader</h3>
-      <div>
-	<input type="file" onChange={onFileChange} />
-	<button onClick={onFileUpload}>Upload</button>
+      <div className="w-10/12 px-8 mt-4">
+        <p className="text-2xl py-4">File Uploader</p>
+        <div>
+	  <input type="file" onChange={onFileChange} />
+	  <button onClick={onFileUpload}>Upload</button>
+        </div>
       </div>
     </div>
   );

@@ -44,8 +44,8 @@ function FileList() {
   );
 
   return (
-    <div>
-      You uploaded files:-
+    <div className="w-10/12 px-8">
+      <p className="text-2xl py-4">Your uploaded files:-</p>
       <ul>
         {listOfFiles}
       </ul>
@@ -55,7 +55,7 @@ function FileList() {
 
 function App() {
   return (
-    <div>
+    <div className="w-full h-full flex">
       <SideBar />
       <FileList />
     </div>
