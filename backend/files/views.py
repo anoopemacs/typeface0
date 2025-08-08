@@ -1,7 +1,9 @@
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.conf import settings
+from django.http import FileResponse, Http404, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+import os
 import uuid
 
 from .models import File
@@ -36,3 +38,23 @@ def file_upload_api(request):
         
         return JsonResponse({"message": "File uploaded successfully"})
     return JsonResponse({"message": "Only POST method is supported"})
+
+@csrf_exempt
+def file_download_api(request, diskname0):
+    file_path = os.path.join(settings.MEDIA_ROOT, diskname0)
+
+    # If we strip the first 36 uuid characters, and the '_' character from diskname0
+    # We get the corresponding filename0
+    filename0 = diskname0[37:]
+
+    if os.path.exists(file_path):
+        # Python's file API is synchronous.
+        # This means that the file must be fully consumed in order to be served under ASGI.
+        # Hence, do not use 'with open(...) as file:' context manager
+        # Refer: https://docs.djangoproject.com/en/5.2/ref/request-response/#fileresponse-objects
+        file = open(file_path, 'rb')
+        response = FileResponse(file, as_attachment=True, filename=filename0)
+        return response
+    else:
+        raise Http404("File does not exist")
+
