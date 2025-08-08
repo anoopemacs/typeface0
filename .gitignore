@@ -1,1 +1,7 @@
 backend/db.sqlite3
+
+# User uploaded files
+backend/uploaded_files/
+
+# Pycharm settings
+backend/.idea/
