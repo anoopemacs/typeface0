@@ -1,23 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
 
+const fileList = {
+  "file_list": [
+    {
+      "id": 2,
+      "filename": "one.txt",
+      "file_download_url": "http://localhost:8000/files/download/c47044e2-1246-4c17-8932-9495c073efc5_one.txt",
+      "file_view_url": "http://localhost:8000/media/c47044e2-1246-4c17-8932-9495c073efc5_one.txt"
+    }
+  ]
+}
+
+function File({ filename, fileDownloadUrl, fileViewUrl }) {
+  return (
+    <li bla="blue">
+      {filename}
+      &nbsp;
+      <a href={fileViewUrl} target="_blank">View</a>
+      &nbsp;
+      <a href={fileDownloadUrl}>Download</a>
+    </li>
+  );
+}
+
+function FileList() {
+  let listOfFiles = fileList["file_list"].map(file =>
+    <File key={file.id}
+          filename={file.filename}
+          fileDownloadUrl={file.file_download_url}
+          fileViewUrl={file.file_view_url} />
+  );
+
+  return (
+    <div>
+      This is the FileList.
+      <ul>
+        {listOfFiles}
+      </ul>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FileList />
     </div>
   );
 }
